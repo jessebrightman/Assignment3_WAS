@@ -63,12 +63,12 @@ namespace Assignment2_WAS_2.Controllers
                 }
                 else
                 {
-                    ViewBag.Message = "<div class='alert alert-danger form-group'   role='alert'>Invalid username/password combination. Please try again.</div>";
+                    ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>Invalid username/password combination. Please try again.</div>";
                 }
             }
             else 
             {
-                ViewBag.Message = "<div class='alert alert-danger form-group'   role='alert'>Please Register before Logging In.</div>";
+                ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>Please Register before Logging In.</div>";
             }
             
             return View();
