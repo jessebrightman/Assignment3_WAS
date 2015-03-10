@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Login</h2>
+<h2>Please Login</h2>
 
 
 @using (Html.BeginForm()) 
@@ -33,13 +33,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Login" class="btn btn-default" />
+                <input type="submit" value="Login" class="btn btn-info" />
             </div>
+        </div>
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Forgot your Password?", "ForgotPassword", "Home", routeValues: null, htmlAttributes: new { id = "forgotPasswordLink" })
         </div>
     </div>
 }
 
-@Html.ActionLink("Forgot your Password?", "ForgotPassword", "Home", routeValues: null, htmlAttributes: new { id = "forgotPasswordLink" })
+
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

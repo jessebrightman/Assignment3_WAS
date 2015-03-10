@@ -14,7 +14,7 @@ namespace Assignment2_WAS_2.BusinessLogic
                                             // This value may/may not be constant.
                                             // To get started use one of your email 
                                             // addresses.
-        public string EmailFromArvixe(Email message) {
+        public string EmailFromArvixe(Message message) {
             
             string TO = message.Sender;
        
@@ -28,11 +28,11 @@ namespace Assignment2_WAS_2.BusinessLogic
             try {
                 MailMessage mailMsg  = new MailMessage(FROM, TO);
                 mailMsg.Subject      = message.Subject;
-                mailMsg.Body         = message.Body + "<br/>sent by: " + message.Sender;
+                mailMsg.Body         = message.Body + "<br/>sent by: " + FROM;
                 mailMsg.IsBodyHtml   = USE_HTML;
 
                 SmtpClient smtp      = new SmtpClient();
-                smtp.Port            = 25;
+                smtp.Port            = 587;
                 smtp.Host            = SMTP_SERVER;
                 smtp.Credentials     = new System.Net.NetworkCredential(FROM, FROM_PWD);
                 smtp.Send(mailMsg);
@@ -49,7 +49,7 @@ namespace Assignment2_WAS_2.BusinessLogic
                                             + callbackUrl + "\">Confirm Registration</a>";
             string subject = "Please confirm your registration.";
             string response = EmailFromArvixe(
-                                       new Email(newUser.Email, subject, email));
+                                       new Message(newUser.Email, subject, email));
             return true;
         }
     }

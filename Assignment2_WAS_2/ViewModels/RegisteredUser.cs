@@ -8,7 +8,8 @@ namespace Assignment2_WAS_2.ViewModels
 {
     public class RegisteredUser
     {
-        [Required]
+        [Required(ErrorMessage = "A User Name is required.")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Please enter a User Name.")]
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 

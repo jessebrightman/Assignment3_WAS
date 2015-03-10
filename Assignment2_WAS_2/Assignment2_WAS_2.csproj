@@ -214,7 +214,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup1.cs" />
-    <Compile Include="ViewModels\Email.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="ViewModels\Message.cs" />
     <Compile Include="ViewModels\RegisteredUser.cs" />

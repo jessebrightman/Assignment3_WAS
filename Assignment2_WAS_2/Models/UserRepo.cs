@@ -98,13 +98,9 @@ namespace Assignment2_WAS_2.Models
             return true;
         }
 
-        public const string EMAIL_CONFIRMATION = "EmailConfirmation";
-        public const string PASSWORD_RESET = "ResetPassword";
         public bool CreateTokenProvider(UserManager<IdentityUser> manager, string tokenType)
         {
-            var provider = new DpapiDataProtectionProvider("MyApplicaitonName");
-            manager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(
-            provider.Create(tokenType));
+            manager.UserTokenProvider = new EmailTokenProvider<IdentityUser>();
             return true;
         }
     }

@@ -8,11 +8,11 @@ namespace Assignment2_WAS_2.ViewModels
 {
     public class Login
     {
-        [Required]
+        [Required(ErrorMessage = "A User Name is required.")]
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "A Password is required.")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

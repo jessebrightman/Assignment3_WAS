@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.AspNet.Identity.Owin;
 using Assignment2_WAS_2.BusinessLogic;
+using System.Threading.Tasks;
 
 namespace Assignment2_WAS_2.Controllers
 {
@@ -60,6 +61,10 @@ namespace Assignment2_WAS_2.Controllers
                     }, identity);
                     return RedirectToAction("Welcome", "Home");
                 }
+                else
+                {
+                    ViewBag.Message = "<div class='alert alert-danger form-group'   role='alert'>Invalid username/password combination. Please try again.</div>";
+                }
             }
             else 
             {
@@ -75,7 +80,7 @@ namespace Assignment2_WAS_2.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisteredUser newUser)
+        public async Task<ActionResult> Register(RegisteredUser newUser)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +88,7 @@ namespace Assignment2_WAS_2.Controllers
                 string captchaResponse = captchaHelper.CheckRecaptcha();
                 ViewBag.CaptchaResponse = captchaResponse;
 
-                if (newUser != null)
+                if (captchaResponse == "Valid")
                 {
                     var userStore = new UserStore<IdentityUser>();
                     UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore)
@@ -100,14 +105,15 @@ namespace Assignment2_WAS_2.Controllers
                         PhoneNumber = newUser.PhoneNumber
                     };
 
-                    IdentityResult result = manager.Create(identityUser, newUser.Password);
+                    IdentityResult result = new IdentityResult();
+                    result = await manager.CreateAsync(identityUser, newUser.Password);
                     UserRepo viewUserRepo = new UserRepo();
                     viewUserRepo.SaveMyUser(newUser);
 
                     if (result.Succeeded && viewUserRepo != null)
                     {       
                         createtoken.CreateTokenProvider(manager, EMAIL_CONFIRMATION);
-                        var code = manager.GenerateEmailConfirmationToken(identityUser.Id);
+                        var code = await manager.GenerateEmailConfirmationTokenAsync(identityUser.Id);
                         var callbackUrl = Url.Action("ConfirmEmail", "Home",
                                                         new { userId = identityUser.Id, code = code },
                                                             protocol: Request.Url.Scheme);
@@ -128,6 +134,14 @@ namespace Assignment2_WAS_2.Controllers
                         }
                     }
                 }
+                else
+                {
+                    ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>Registration failed.  Please Register again.</div>";
+                }            
+            }
+            else
+            {
+                ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>Registration failed.  Please Register again.</div>";
             }
             return View();
         }
@@ -137,7 +151,7 @@ namespace Assignment2_WAS_2.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult CreateRole()
         {
@@ -166,7 +180,7 @@ namespace Assignment2_WAS_2.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult ModifyUserRole()
         {
@@ -248,11 +262,11 @@ namespace Assignment2_WAS_2.Controllers
             {
                 IdentityResult result = manager.ConfirmEmail(userID, code);
                 if (result.Succeeded)
-                    ViewBag.Message = "You are now registered!";
+                    ViewBag.Message = "<div class='alert alert-success form-group' role='alert'>You are now registered!  Please Login!</div>";
             }
             catch
             {
-                ViewBag.Message = "Validation attempt failed!";
+                ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>Account validation failed!  Please try again!</div>";
             }
             return View();
         }
@@ -263,28 +277,35 @@ namespace Assignment2_WAS_2.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ForgotPassword(string username)
+        public async Task<ActionResult> ForgotPassword(string username)
         {
-            var userStore = new UserStore<IdentityUser>();
-            UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
-            var search = db.AspNetUsers.Where(u => u.UserName == username).Select(u => new {email = u.Email, userID = u.Id}).First();
-            var user = manager.FindById(search.userID);
-            createtoken.CreateTokenProvider(manager, PASSWORD_RESET);
+            if (username != null)
+            {
+                var userStore = new UserStore<IdentityUser>();
+                UserManager<IdentityUser> manager = new UserManager<IdentityUser>(userStore);
+                var search = db.AspNetUsers.Where(u => u.UserName == username).Select(u => new { email = u.Email, userID = u.Id }).First();
+                var user = manager.FindById(search.userID);
+                createtoken.CreateTokenProvider(manager, PASSWORD_RESET);
 
-            var code = manager.GeneratePasswordResetToken(user.Id);
-            var callbackUrl = Url.Action("ResetPassword", "Home",
-                                         new { userId = user.Id, code = code },
-                                         protocol: Request.Url.Scheme);
-            //ViewBag.FakeEmailMessage = "Please reset your password by clicking <a href=\""
-            //                         + callbackUrl + "\">here</a>";
+                var code = await manager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Home",
+                                             new { userId = user.Id, code = code },
+                                             protocol: Request.Url.Scheme);
+                if (code != null)
+                {
+                    MailHelper mailer = new MailHelper();
+                    string email = "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>";
+                    string subject = "Please reset your password.";
+                    string response = mailer.EmailFromArvixe(
+                                               new Message(search.email, subject, email));
 
-            MailHelper mailer = new MailHelper();
-            string email = "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>";
-            string subject = "Please reset your password.";
-            string response = mailer.EmailFromArvixe(
-                                       new Email(search.email, subject, email));
-
-            ViewBag.Message = "<div class='alert alert-success form-group' role='alert'>Please check your inbox for our email to reset your password.</div>";
+                    ViewBag.Message = "<div class='alert alert-success form-group' role='alert'>Please check your inbox for our email to reset your password.</div>";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>Account validation failed!  Please try again!</div>";
+            }
             return View();
         }
 

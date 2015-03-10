@@ -24,7 +24,7 @@ namespace Assignment2_WAS_2.BusinessLogic
             const string CAPTCHA_VALID = "Valid";
             var response = HttpContext.Current.Request["g-recaptcha-response"];
             //secret that was generated in key value pair
-            const string secret = "***Secret key goes here ***";
+            const string secret = "6Led9wITAAAAAAG846Q2FhpHh9Ohe5xiPuPGPpOW";
 
             var client = new WebClient();
             var reply = client.DownloadString(

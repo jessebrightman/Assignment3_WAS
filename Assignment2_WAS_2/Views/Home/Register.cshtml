@@ -4,7 +4,7 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Register</h2>
+<h2>Register For An Account</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Registered User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.Raw(ViewBag.Message)
@@ -90,14 +89,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <div class="g-recaptcha" data-sitekey="6Led9wITAAAAAI9kDxYe27cbC6fnwGQUpZtwR2Jw"></div>
-                <input type="submit" value="Create" class="btn btn-default" />
+                <div class="g-recaptcha" data-sitekey="6Led9wITAAAAAI9kDxYe27cbC6fnwGQUpZtwR2Jw"></div><br />
+                <input type="submit" value="Register" class="btn btn-info" />
             </div>
         </div>
     </div>
 }
-
-@Html.Raw(ViewBag.CaptchaResponse)
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

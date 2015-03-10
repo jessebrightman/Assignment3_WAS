@@ -18,7 +18,7 @@ namespace Assignment2_WAS_2
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AntiForgeryConfig.SuppressIdentityHeuristicChecks = true;
         }
-        /*void Application_PostAuthenticateRequest()
+        void Application_PostAuthenticateRequest()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -35,7 +35,7 @@ namespace Assignment2_WAS_2
                 HttpContext.Current.User = Thread.CurrentPrincipal =
                                            new GenericPrincipal(User.Identity, roles);
             }
-        }*/
+        }
 
     }
 }
