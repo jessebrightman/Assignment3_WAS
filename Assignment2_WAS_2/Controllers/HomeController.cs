@@ -151,13 +151,12 @@ namespace Assignment2_WAS_2.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult CreateRole()
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult CreateRole(AspNetRole role)
         {
@@ -180,7 +179,7 @@ namespace Assignment2_WAS_2.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult ModifyUserRole()
         {
@@ -250,8 +249,6 @@ namespace Assignment2_WAS_2.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
-
         public ActionResult ConfirmEmail(string userID, string code)
         {
             var userStore = new UserStore<IdentityUser>();
@@ -317,7 +314,6 @@ namespace Assignment2_WAS_2.Controllers
             return View();
         }
         [HttpPost]
-
         public ActionResult ResetPassword(string password, string passwordConfirm,
                                           string passwordToken, string userID)
         {
@@ -334,9 +330,9 @@ namespace Assignment2_WAS_2.Controllers
 
                 IdentityResult result = manager.ResetPassword(userID, passwordToken, password);
                 if (result.Succeeded)
-                    ViewBag.Result = "The password has been reset.";
+                    ViewBag.Message = "<div class='alert alert-success form-group' role='alert'>The password has been reset.</div>";
                 else
-                    ViewBag.Result = "The password has not been reset.";
+                    ViewBag.Message = "<div class='alert alert-danger form-group' role='alert'>The password has not been reset.</div>";
             }
             return View();
         }

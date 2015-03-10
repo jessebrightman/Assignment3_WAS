@@ -154,3 +154,46 @@ C:\Users\Jesse\Google Drive\Shared\SECURITY\Assignment2_WAS_2\Assignment2_WAS_2\
 C:\Users\Jesse\Google Drive\Shared\SECURITY\Assignment2_WAS_2\Assignment2_WAS_2\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Jesse\Google Drive\Shared\SECURITY\Assignment2_WAS_2\Assignment2_WAS_2\bin\Newtonsoft.Json.xml
 C:\Users\Jesse\Google Drive\Shared\SECURITY\Assignment2_WAS_2\Assignment2_WAS_2\bin\Recaptcha.pdb
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Assignment2_WAS_2.dll.config
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Assignment2_WAS_2.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Assignment2_WAS_2.pdb
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\EntityFramework.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\EntityFramework.SqlServer.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Security.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Newtonsoft.Json.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Owin.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Recaptcha.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Helpers.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Mvc.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Razor.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Webpages.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Webpages.Razor.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\EntityFramework.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\EntityFramework.SqlServer.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Security.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Newtonsoft.Json.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\Recaptcha.pdb
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Razor.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Webpages.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Webpages.Razor.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Helpers.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\bin\System.Web.Mvc.xml
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\obj\Debug\Assignment2_WAS_2.csprojResolveAssemblyReference.cache
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\obj\Debug\Assignment2_WAS_2.dll
+C:\Users\Jesse\Documents\GitHub\Assignment3_WAS\Assignment2_WAS_2\obj\Debug\Assignment2_WAS_2.pdb
